@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  padding: 0.2rem 1rem;
+  background-color: #0d151f;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+button {
+  transition: all 0.5s ease-in-out;
+}
+
+a:hover,
+button:hover {
+  color: silver;
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+
+
+
+
+
+/* // buttons, Button.vue */
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 5px 10px;
+  /* margin: 5px; */
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.8rem;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn:hover {
+  filter: brightness(80%);
+  transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 992px) {
+  .btn {
+    font-size: 0.7rem;
+    padding: 3px 5px;
+  }
+}
+
+input {
+  color: black !important;
+}
+
+
+
+/* placeholder styles */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: black;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: black;
+}
+
+/* .aipage-left {
+    padding: 1rem;
+} */
+
+.aipage-left-responsive-menu {
+  display: none;
+}
+
+
+.aipage-left span {
+  transition: all .5s ease-in-out;
+}
+
+.aipage-left span:hover {
+  cursor: pointer;
+  color: silver;
+  transition: all 0.5s ease-in-out;
+}
+
+/* responsive */
+
+@media screen and (max-width: 992px) {
+  .aipage {
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+
+  }
+
+  .aipage-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+  }
+
+  .aipage-right {
+    padding: .5rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  .aipage-left-responsive-menu {
+    display: block;
+  }
+
+  .aipage-left-options {
+    display: none;
+  }
+
+
+
+  .image-result-img {
+    height: auto;
+  }
+}

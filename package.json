@@ -1,0 +1,39 @@
+{
+  "name": "myriad",
+  "short_name": "myriad!",
+  "description": "A Vue3 + openAI + TailwindCSS + Firebase/Firestore app",
+  "heywords": "HTML, CSS, JavaScript, Vue3, Firebase, Firestore, openAI, TailwindCSS",
+  "author": "Víctor Balaguera",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "json-server": "json-server --watch db.json --port 5000"
+  },
+  "dependencies": {
+    "@cloudinary/url-gen": "^1.8.7",
+    "@cloudinary/vue": "^1.9.0",
+    "@vuepic/vue-datepicker": "^3.6.5",
+    "cloudinary": "^1.33.0",
+    "core-js": "^3.8.3",
+    "firebase": "^9.15.0",
+    "json-server": "^0.17.1",
+    "openai": "^3.1.0",
+    "react-firebase-hooks": "^5.1.1",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "serve": "^14.1.2",
+    "vue": "^3.2.13",
+    "vue-meta": "^2.4.0",
+    "vue-router": "^4.1.6",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4"
+  }
+}
