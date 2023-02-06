@@ -2,8 +2,6 @@
   <div
     class="h-full min-h-[80vh] aipage flex border border-1 border-solid border-zinc-600"
   >
-    <div v-if="errorMsg">{{ errorMsg }}</div>
-
     <div class="aipage-left p-2">
       <!-- responsive menu -->
       <div class="aipage-left-responsive-menu">
@@ -60,7 +58,7 @@
       </div>
     </div>
     <div class="aipage-right flex flex-col w-full h-[85vh] p-2 justify-between">
-      <div class="aipage-right-result overflow-auto">
+      <div class="aipage-right-result">
         <!-- ai text results -->
         <div v-show="!showImageGenerator">
           <div class="flex justify-between aipage-right-result-top">
@@ -74,9 +72,15 @@
               <button @click="clearChat">Clear chat</button>
             </div>
           </div>
-          <div v-for="message in messages" :key="message.index" class="mt-2">
+          <div
+            v-for="message in messages"
+            :key="message.index"
+            class="mt-2 overflow-auto"
+          >
+            <!-- TODO: make this div flow better  -->
             <ChatMessage :user="message.user" :message="message.message" />
           </div>
+          <div v-if="errorMsg">{{ errorMsg }}</div>
         </div>
 
         <!-- end ai text results -->
@@ -194,6 +198,9 @@ import { db } from '@/firebase'
 
 const resultsRef = collection(db, 'queries')
 
+//
+import { nextTick } from 'vue'
+
 export default {
   name: 'AIPage',
   components: {
@@ -263,6 +270,8 @@ export default {
         { user: 'user', message: this.prompt },
       ]
       this.messages = messages
+      await nextTick()
+      window.scrollTo(0, document.body.scrollHeight)
       const option = this.aiSelected
 
       const query = {
@@ -279,6 +288,8 @@ export default {
           { user: 'openAi', message: response.data.choices[0].text },
         ]
         this.messages = messages
+        await nextTick()
+        window.scrollTo(0, document.body.scrollHeight)
 
         this.result = response.data.choices[0].text
         this.loading = false
@@ -326,6 +337,11 @@ export default {
 </script>
 
 <style scoped>
+.aipage-right-result {
+  max-height: 60vh;
+
+  overflow-y: auto;
+}
 @media screen and (max-width: 992px) {
   .aipage-right-result-top {
     font-size: 0.8rem;
