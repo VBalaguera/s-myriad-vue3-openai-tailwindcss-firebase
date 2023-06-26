@@ -185,7 +185,7 @@ import { aiOptions } from '../data/aiOptions'
 // openai
 import { Configuration, OpenAIApi } from 'openai'
 const configuration = new Configuration({
-  organization: 'org-5bUgC6fZlqlRVk9XaGoqUz7s',
+  organization: process.env.VUE_APP_OPENAI_API_ORGANIZATION,
   apiKey: process.env.VUE_APP_OPENAI_IMAGE_GENERATOR_API_KEY,
 })
 const openai = new OpenAIApi(configuration)
